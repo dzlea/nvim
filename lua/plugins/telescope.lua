@@ -4,16 +4,13 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim"
         },
-        config = function()
-            require('telescope').setup()
-            local builtin = require('telescope.builtin')
-            -- 进入telescope页面会是插入模式，回到正常模式就可以用j和k来移动了
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-            -- 环境里要安装ripgrep
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-            vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-        end,
+        keys = {
+            {"<leader>ff", mode = "n", "<cmd>lua require('telescope.builtin').find_files()<CR>", desc = "Telescope Find File"},
+            {"<leader>fg", mode = "n", "<cmd>lua require('telescope.builtin').live_grep()<CR>", desc = "Telescope Live Grep"},
+            {"<leader>fb", mode = "n", "<cmd>lua require('telescope.builtin').buffers()<CR>", desc = "Telescope Buffers"},
+            {"<leader>fo", mode = "n", "<cmd>lua require('telescope.builtin').oldfiles()<CR>", desc = "Telescope Find Oldfiles"},
+            {"<leader>fh", mode = "n", "<cmd>lua require('telescope.builtin').help_tags()<CR>", desc = "Telescope Help"},
+        },
+        config = true,
     },
 }
