@@ -4,13 +4,15 @@ return {
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },
-        config = function()
-            --默认不开启nvim-tree
+        init = function()
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
             vim.opt.termguicolors = true
-
-            require("nvim-tree").setup()
         end,
+        keys = {
+            {"<leader>e", mode = {"n", "v"}, "<cmd>:NvimTreeToggle<CR>", desc = "open nvim-tree"},
+            {"<leader>c", mode = {"n", "v"}, "<cmd>:NvimTreeCollapse<CR>", desc = "collapse nvim-tree"},
+        },
+        config = true,
     },
 }

@@ -24,15 +24,3 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 keymap.set("n", "<leader>sq", ":wq<CR>")
 --保存
 keymap.set("n", "<leader>s", ":w<CR>")
-
-
--- -----------------插件-------------------
---nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
---光标移动tree中
-keymap.set("n", "<leader>t", ":NvimTreeFindFile<CR>")
---折叠tree
-keymap.set("n", "<leader>c", ":NvimTreeCollapse<CR>")
---切换buffer
-keymap.set("n", "L", ":bnext<CR>")
-keymap.set("n", "H", ":bprevious<CR>")

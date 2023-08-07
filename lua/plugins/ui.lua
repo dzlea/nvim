@@ -2,7 +2,20 @@ return {
     {
         "akinsho/bufferline.nvim",
         dependencies = "nvim-tree/nvim-web-devicons",
-        config = true,
+        keys = {
+            {"H", mode = "n", "<cmd>:BufferLineCyclePrev<CR>", desc = "BufferLine Prev"},
+            {"L", mode = "n", "<cmd>:BufferLineCycleNext<CR>", desc = "BufferLine Next"},
+        },
+        opts = {
+            options = {
+                offsets = {{
+                    filetype = "neo-tree",
+                    text = "Neo-tree",
+                    highlight = "Directory",
+                    text_align = "left",
+                }}
+            }
+        },
     },
     {
         "lukas-reineke/indent-blankline.nvim",
