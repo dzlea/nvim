@@ -1,6 +1,7 @@
 return {
     {
         "akinsho/bufferline.nvim",
+        event = "VeryLazy",
         dependencies = "nvim-tree/nvim-web-devicons",
         keys = {
             {"H", mode = "n", "<cmd>:BufferLineCyclePrev<CR>", desc = "BufferLine Prev"},
@@ -19,6 +20,7 @@ return {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
+        event = "VeryLazy",
         config = true,
     },
     {
