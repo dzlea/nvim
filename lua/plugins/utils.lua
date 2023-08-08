@@ -1,6 +1,6 @@
 return {
     {
-        "christoomey/vim-tmux-navigator"
+        "christoomey/vim-tmux-navigator",
         event = "VeryLazy",
     },
     {
@@ -24,6 +24,6 @@ return {
         event = "VeryLazy",
         config = function()
             require('illuminate').configure()
-        end
+        end,
     },
 }
