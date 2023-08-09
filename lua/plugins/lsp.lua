@@ -15,6 +15,7 @@ return {
         config = function()
             local language_servers = {
                 lua_ls = {},
+                marksman = {},
             }
             require("neodev").setup()
             require("fidget").setup()
