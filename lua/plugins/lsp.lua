@@ -67,6 +67,7 @@ return {
                     function(server_name)
                         require("lspconfig")[server_name].setup {
                             settings = language_servers[server_name],
+                            on_attach = on_attach,
                             capabilities = capabilities,
                         }
                     end,

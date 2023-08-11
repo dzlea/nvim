@@ -1,5 +1,13 @@
 return {
     {
+        "rainbowhxch/accelerated-jk.nvim",
+        event = { "BufReadPost", "BufNewFile" },
+        keys = {
+            {"j", mode = "n", "<Plug>(accelerated_jk_gj)", desc = "Fast ↓"},
+            {"k", mode = "n", "<Plug>(accelerated_jk_gk)", desc = "Fast ↑"},
+        },
+    },
+    {
         "christoomey/vim-tmux-navigator",
         event = "VeryLazy",
     },

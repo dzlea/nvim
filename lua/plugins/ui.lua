@@ -20,8 +20,10 @@ return {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = "VeryLazy",
-        config = true,
+        event = { "BufReadPost", "BufNewFile" },
+        opts = {
+            show_current_context = true,
+        },
     },
     {
         "goolord/alpha-nvim",
@@ -45,5 +47,17 @@ return {
             -- Send config to alpha
             require("alpha").setup(dashboard.opts)
         end
+    },
+    {
+        "utilyre/sentiment.nvim",
+        version = "*",
+        event = "VeryLazy", -- keep for lazy loading
+        opts = {
+            -- config
+        },
+        init = function()
+            -- `matchparen.vim` needs to be disabled manually in case of lazy loading
+            vim.g.loaded_matchparen = 1
+        end,
     },
 }
