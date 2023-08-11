@@ -10,8 +10,8 @@ return {
         opts = {
             options = {
                 offsets = {{
-                    filetype = "neo-tree",
-                    text = "Neo-tree",
+                    filetype = "NvimTree",
+                    text = "FileTree",
                     highlight = "Directory",
                     text_align = "left",
                 }}
