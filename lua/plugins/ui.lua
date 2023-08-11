@@ -6,9 +6,15 @@ return {
         keys = {
             {"H", mode = "n", "<cmd>:BufferLineCyclePrev<CR>", desc = "BufferLine Prev"},
             {"L", mode = "n", "<cmd>:BufferLineCycleNext<CR>", desc = "BufferLine Next"},
+            {"<leader>gb", mode = "n", "<cmd>:BufferLinePick<CR>", desc = "BufferLine Pick"},
         },
         opts = {
             options = {
+                diagnostics = "nvim_lsp",
+                diagnostics_indicator = function(count, level)
+                    local icon = level:match("error") and " " or " "
+                    return " " .. icon .. count
+                end,
                 offsets = {{
                     filetype = "NvimTree",
                     text = "FileTree",

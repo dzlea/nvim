@@ -43,7 +43,7 @@ return {
                 -- 取消补全，esc也可以退出
                 ['<C-e>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
-            
+
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                       cmp.select_next_item()
@@ -57,7 +57,7 @@ return {
                       fallback()
                     end
                 end, { "i", "s" }),
-              
+
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                       cmp.select_prev_item()
