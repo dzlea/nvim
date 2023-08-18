@@ -15,8 +15,29 @@ return {
         },
         config = function()
             local language_servers = {
-                lua_ls = {},
+                lua_ls = {
+                    settings = {
+                        Lua = {
+                            workspace = { checkThirdParty = false },
+                            telemetry = { enable = false },
+                        },
+                    },
+                },
                 marksman = {},
+                gopls = {
+                    cmd = {"gopls"},
+                    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+                    root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
+                    settings = {
+                        gopls = {
+                            completeUnimported = true,
+                            usePlaceholders = true,
+                            analyses = {
+                                unusedparams = true,
+                            },
+                        },
+                    },
+                },
             }
             local on_attach = function(_, bufnr)
                 -- Enable completion triggered by <c-x><c-o>
@@ -63,16 +84,20 @@ return {
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
             require("mason-lspconfig").setup({
                 ensure_installed = vim.tbl_keys(language_servers),
-                handlers = {
-                    function(server_name)
-                        require("lspconfig")[server_name].setup {
-                            settings = language_servers[server_name],
-                            on_attach = on_attach,
-                            capabilities = capabilities,
-                        }
-                    end,
-                }
             })
+
+            for language_server, config in pairs(language_servers) do
+                require("lspconfig")[language_server].setup(
+                    vim.tbl_deep_extend("keep",
+                        {
+                            on_attach = on_attach,
+                            capabilities = capabilities
+                        },
+                        config
+                    )
+                )
+            end
+
         end
     },
 }
