@@ -17,6 +17,10 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Up Single Or Multiple Li
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Horizontal Increase Window" })
 -- --垂直增加窗口
 keymap.set("n", "<leader>ss", "<C-w>s", { desc = "Vertically Increase Window" })
+keymap.set("n", "=", "<C-w>+", { desc = "Increase the height of the current window" })
+keymap.set("n", "-", "<C-w>-", { desc = "Decrease the height of the current window" })
+keymap.set("n", ",", "<C-w><", { desc = "Reduce the current window bandwidth" })
+keymap.set("n", ".", "<C-w>>", { desc = "Increase current window bandwidth" })
 
 --取消高亮
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Unhighlight" })
