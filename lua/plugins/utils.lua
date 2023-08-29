@@ -47,4 +47,29 @@ return {
           -- refer to the configuration section below
         },
     },
+    {
+        "s1n7ax/nvim-window-picker",
+        main = "window-picker",
+        keys = {
+            {
+                "<leader>p",
+                mode = "n",
+                function()
+                    local window_number = require("window-picker").pick_window()
+                    if window_number then
+                        vim.api.nvim_set_current_win(window_number)
+                    end
+                end,
+                desc = "Picker show current windows",
+            },
+        },
+        opts = {
+            filter_rules = {
+                include_current_win = true,
+                bo = {
+                    filetype = { "fidget", "neo-tree" },
+                },
+            },
+        },
+    },
 }
